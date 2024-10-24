@@ -1,0 +1,239 @@
+mysql> create database Ruhande;
+ERROR 1007 (HY000): Can't create database 'ruhande'; database exists
+mysql> use Ruhande;
+Database changed
+mysql> drop table Ngoma;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables
+    -> ;
+Empty set (0.00 sec)
+
+mysql>  create table Ngoma (ID int(16)primary key, FName char(20), LName char(20), Gender char(1), Province char (20), District char(20), Sector char (20), Cell char(20), Email_address char(40));
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+mysql> desc Ngoma;
++---------------+----------+------+-----+---------+-------+
+| Field         | Type     | Null | Key | Default | Extra |
++---------------+----------+------+-----+---------+-------+
+| ID            | int      | NO   | PRI | NULL    |       |
+| FName         | char(20) | YES  |     | NULL    |       |
+| LName         | char(20) | YES  |     | NULL    |       |
+| Gender        | char(1)  | YES  |     | NULL    |       |
+| Province      | char(20) | YES  |     | NULL    |       |
+| District      | char(20) | YES  |     | NULL    |       |
+| Sector        | char(20) | YES  |     | NULL    |       |
+| Cell          | char(20) | YES  |     | NULL    |       |
+| Email_address | char(40) | YES  |     | NULL    |       |
++---------------+----------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> insert into Ngoma values (1120384730, "Valens","Karambizi", "M","North","Huye","Ngoma","Cyarwa","valenskar10@gmail.com");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Ngoma;
++------------+--------+-----------+--------+----------+----------+--------+--------+-----------------------+
+| ID         | FName  | LName     | Gender | Province | District | Sector | Cell   | Email_address         |
++------------+--------+-----------+--------+----------+----------+--------+--------+-----------------------+
+| 1120384730 | Valens | Karambizi | M      | North    | Huye     | Ngoma  | Cyarwa | valenskar10@gmail.com |
++------------+--------+-----------+--------+----------+----------+--------+--------+-----------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into Ngoma (ID, FName, LName, Gender, Province, District, Sector, Cell, Email_address) values (1120384731, "Jhon","Mukiza", "M","North","Huye","Ngoma","Rango_B","jhonmu0@gmail.com"),(1120384732, "Esther","Mbabazi", "F","North","Huye","Ngoma","Rango_A","mbabazies13@gmail.com"),(1120384733, "Joseph","Karori", "M","North","Huye","Ngoma","Cyarwa","josephkar90@gmail.com"),(1120384734, "Chantal","Mukeshimana", "F","North","Huye","Ngoma","Cyarwa","chantalmuk22@gmail.com"),(1120384735, "Vincent","Mugabe", "M","North","Huye","Ngoma","Rango_B","vincentmugabe40@gmail.com"),(1120384736, "Fidele","Musabika", "M","North","Huye","Ngoma","Rango_A","fidelemusab66@gmail.com"),(1120384737, "Cloudine","Uwiduhaye", "F","North","Huye","Ngoma","Cyarwa","uwiduhaye15@gmail.com"),(1120384738, "Valentine","Uwimbabazi", "F","North","Huye","Ngoma","Rango_B","valentineuwi45@gmail.com"),(1120384739, "Alex","Muyoboke", "F","North","Huye","Ngoma","Cyarwa","alexmuyoboke0@gmail.com");
+Query OK, 9 rows affected (0.00 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> select * from Ngoma;
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+
+| ID         | FName     | LName       | Gender | Province | District | Sector | Cell    | Email_address             |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+
+| 1120384730 | Valens    | Karambizi   | M      | North    | Huye     | Ngoma  | Cyarwa  | valenskar10@gmail.com     |
+| 1120384731 | Jhon      | Mukiza      | M      | North    | Huye     | Ngoma  | Rango_B | jhonmu0@gmail.com         |
+| 1120384732 | Esther    | Mbabazi     | F      | North    | Huye     | Ngoma  | Rango_A | mbabazies13@gmail.com     |
+| 1120384733 | Joseph    | Karori      | M      | North    | Huye     | Ngoma  | Cyarwa  | josephkar90@gmail.com     |
+| 1120384734 | Chantal   | Mukeshimana | F      | North    | Huye     | Ngoma  | Cyarwa  | chantalmuk22@gmail.com    |
+| 1120384735 | Vincent   | Mugabe      | M      | North    | Huye     | Ngoma  | Rango_B | vincentmugabe40@gmail.com |
+| 1120384736 | Fidele    | Musabika    | M      | North    | Huye     | Ngoma  | Rango_A | fidelemusab66@gmail.com   |
+| 1120384737 | Cloudine  | Uwiduhaye   | F      | North    | Huye     | Ngoma  | Cyarwa  | uwiduhaye15@gmail.com     |
+| 1120384738 | Valentine | Uwimbabazi  | F      | North    | Huye     | Ngoma  | Rango_B | valentineuwi45@gmail.com  |
+| 1120384739 | Alex      | Muyoboke    | F      | North    | Huye     | Ngoma  | Cyarwa  | alexmuyoboke0@gmail.com   |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+
+10 rows in set (0.00 sec)
+
+mysql> update Ngoma set Gender="M"where ID=1120384739;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Ngoma;
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+
+| ID         | FName     | LName       | Gender | Province | District | Sector | Cell    | Email_address             |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+
+| 1120384730 | Valens    | Karambizi   | M      | North    | Huye     | Ngoma  | Cyarwa  | valenskar10@gmail.com     |
+| 1120384731 | Jhon      | Mukiza      | M      | North    | Huye     | Ngoma  | Rango_B | jhonmu0@gmail.com         |
+| 1120384732 | Esther    | Mbabazi     | F      | North    | Huye     | Ngoma  | Rango_A | mbabazies13@gmail.com     |
+| 1120384733 | Joseph    | Karori      | M      | North    | Huye     | Ngoma  | Cyarwa  | josephkar90@gmail.com     |
+| 1120384734 | Chantal   | Mukeshimana | F      | North    | Huye     | Ngoma  | Cyarwa  | chantalmuk22@gmail.com    |
+| 1120384735 | Vincent   | Mugabe      | M      | North    | Huye     | Ngoma  | Rango_B | vincentmugabe40@gmail.com |
+| 1120384736 | Fidele    | Musabika    | M      | North    | Huye     | Ngoma  | Rango_A | fidelemusab66@gmail.com   |
+| 1120384737 | Cloudine  | Uwiduhaye   | F      | North    | Huye     | Ngoma  | Cyarwa  | uwiduhaye15@gmail.com     |
+| 1120384738 | Valentine | Uwimbabazi  | F      | North    | Huye     | Ngoma  | Rango_B | valentineuwi45@gmail.com  |
+| 1120384739 | Alex      | Muyoboke    | M      | North    | Huye     | Ngoma  | Cyarwa  | alexmuyoboke0@gmail.com   |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+
+10 rows in set (0.00 sec)
+
+mysql> alter table Ngoma add Telephone char(20);
+Query OK, 10 rows affected (0.05 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select * from Ngoma;
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+-----------+
+| ID         | FName     | LName       | Gender | Province | District | Sector | Cell    | Email_address             | Telephone |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+-----------+
+| 1120384730 | Valens    | Karambizi   | M      | North    | Huye     | Ngoma  | Cyarwa  | valenskar10@gmail.com     | NULL      |
+| 1120384731 | Jhon      | Mukiza      | M      | North    | Huye     | Ngoma  | Rango_B | jhonmu0@gmail.com         | NULL      |
+| 1120384732 | Esther    | Mbabazi     | F      | North    | Huye     | Ngoma  | Rango_A | mbabazies13@gmail.com     | NULL      |
+| 1120384733 | Joseph    | Karori      | M      | North    | Huye     | Ngoma  | Cyarwa  | josephkar90@gmail.com     | NULL      |
+| 1120384734 | Chantal   | Mukeshimana | F      | North    | Huye     | Ngoma  | Cyarwa  | chantalmuk22@gmail.com    | NULL      |
+| 1120384735 | Vincent   | Mugabe      | M      | North    | Huye     | Ngoma  | Rango_B | vincentmugabe40@gmail.com | NULL      |
+| 1120384736 | Fidele    | Musabika    | M      | North    | Huye     | Ngoma  | Rango_A | fidelemusab66@gmail.com   | NULL      |
+| 1120384737 | Cloudine  | Uwiduhaye   | F      | North    | Huye     | Ngoma  | Cyarwa  | uwiduhaye15@gmail.com     | NULL      |
+| 1120384738 | Valentine | Uwimbabazi  | F      | North    | Huye     | Ngoma  | Rango_B | valentineuwi45@gmail.com  | NULL      |
+| 1120384739 | Alex      | Muyoboke    | M      | North    | Huye     | Ngoma  | Cyarwa  | alexmuyoboke0@gmail.com   | NULL      |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> update Ngoma set Telephone="+250 783 200 453" where ID=1120384730;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Telephone="+250 783 200 444" where ID=1120384731;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Telephone="+250 783 120 224" where ID=1120384732;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Telephone="+250 753 120 728" where ID=1120384733;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Telephone="+250 783 330 111" where ID=1120384734;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Telephone="+250 783 170 233" where ID=1120384733;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Telephone="+250 783 370 888" where ID=1120384735;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Telephone="+250 783 909 890" where ID=1120384736;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Telephone="+250 783 400 899" where ID=1120384737;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Telephone="+250 783 490 767" where ID=1120384738;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Telephone="+250 787 499 101" where ID=1120384739;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Ngoma;
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+
+| ID         | FName     | LName       | Gender | Province | District | Sector | Cell    | Email_address             | Telephone        |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+
+| 1120384730 | Valens    | Karambizi   | M      | North    | Huye     | Ngoma  | Cyarwa  | valenskar10@gmail.com     | +250 783 200 453 |
+| 1120384731 | Jhon      | Mukiza      | M      | North    | Huye     | Ngoma  | Rango_B | jhonmu0@gmail.com         | +250 783 200 444 |
+| 1120384732 | Esther    | Mbabazi     | F      | North    | Huye     | Ngoma  | Rango_A | mbabazies13@gmail.com     | +250 783 120 224 |
+| 1120384733 | Joseph    | Karori      | M      | North    | Huye     | Ngoma  | Cyarwa  | josephkar90@gmail.com     | +250 783 170 233 |
+| 1120384734 | Chantal   | Mukeshimana | F      | North    | Huye     | Ngoma  | Cyarwa  | chantalmuk22@gmail.com    | +250 783 330 111 |
+| 1120384735 | Vincent   | Mugabe      | M      | North    | Huye     | Ngoma  | Rango_B | vincentmugabe40@gmail.com | +250 783 370 888 |
+| 1120384736 | Fidele    | Musabika    | M      | North    | Huye     | Ngoma  | Rango_A | fidelemusab66@gmail.com   | +250 783 909 890 |
+| 1120384737 | Cloudine  | Uwiduhaye   | F      | North    | Huye     | Ngoma  | Cyarwa  | uwiduhaye15@gmail.com     | +250 783 400 899 |
+| 1120384738 | Valentine | Uwimbabazi  | F      | North    | Huye     | Ngoma  | Rango_B | valentineuwi45@gmail.com  | +250 783 490 767 |
+| 1120384739 | Alex      | Muyoboke    | M      | North    | Huye     | Ngoma  | Cyarwa  | alexmuyoboke0@gmail.com   | +250 787 499 101 |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+
+10 rows in set (0.00 sec)
+
+mysql> alter table Ngoma add Martal_status;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> alter table Ngoma add Martal_status char(10);
+Query OK, 10 rows affected (0.07 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select * from Ngoma;
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+---------------+
+| ID         | FName     | LName       | Gender | Province | District | Sector | Cell    | Email_address             | Telephone        | Martal_status |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+---------------+
+| 1120384730 | Valens    | Karambizi   | M      | North    | Huye     | Ngoma  | Cyarwa  | valenskar10@gmail.com     | +250 783 200 453 | NULL          |
+| 1120384731 | Jhon      | Mukiza      | M      | North    | Huye     | Ngoma  | Rango_B | jhonmu0@gmail.com         | +250 783 200 444 | NULL          |
+| 1120384732 | Esther    | Mbabazi     | F      | North    | Huye     | Ngoma  | Rango_A | mbabazies13@gmail.com     | +250 783 120 224 | NULL          |
+| 1120384733 | Joseph    | Karori      | M      | North    | Huye     | Ngoma  | Cyarwa  | josephkar90@gmail.com     | +250 783 170 233 | NULL          |
+| 1120384734 | Chantal   | Mukeshimana | F      | North    | Huye     | Ngoma  | Cyarwa  | chantalmuk22@gmail.com    | +250 783 330 111 | NULL          |
+| 1120384735 | Vincent   | Mugabe      | M      | North    | Huye     | Ngoma  | Rango_B | vincentmugabe40@gmail.com | +250 783 370 888 | NULL          |
+| 1120384736 | Fidele    | Musabika    | M      | North    | Huye     | Ngoma  | Rango_A | fidelemusab66@gmail.com   | +250 783 909 890 | NULL          |
+| 1120384737 | Cloudine  | Uwiduhaye   | F      | North    | Huye     | Ngoma  | Cyarwa  | uwiduhaye15@gmail.com     | +250 783 400 899 | NULL          |
+| 1120384738 | Valentine | Uwimbabazi  | F      | North    | Huye     | Ngoma  | Rango_B | valentineuwi45@gmail.com  | +250 783 490 767 | NULL          |
+| 1120384739 | Alex      | Muyoboke    | M      | North    | Huye     | Ngoma  | Cyarwa  | alexmuyoboke0@gmail.com   | +250 787 499 101 | NULL          |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> alter table Ngoma drop Martal_status;
+Query OK, 10 rows affected (0.05 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select * from Ngoma;
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+
+| ID         | FName     | LName       | Gender | Province | District | Sector | Cell    | Email_address             | Telephone        |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+
+| 1120384730 | Valens    | Karambizi   | M      | North    | Huye     | Ngoma  | Cyarwa  | valenskar10@gmail.com     | +250 783 200 453 |
+| 1120384731 | Jhon      | Mukiza      | M      | North    | Huye     | Ngoma  | Rango_B | jhonmu0@gmail.com         | +250 783 200 444 |
+| 1120384732 | Esther    | Mbabazi     | F      | North    | Huye     | Ngoma  | Rango_A | mbabazies13@gmail.com     | +250 783 120 224 |
+| 1120384733 | Joseph    | Karori      | M      | North    | Huye     | Ngoma  | Cyarwa  | josephkar90@gmail.com     | +250 783 170 233 |
+| 1120384734 | Chantal   | Mukeshimana | F      | North    | Huye     | Ngoma  | Cyarwa  | chantalmuk22@gmail.com    | +250 783 330 111 |
+| 1120384735 | Vincent   | Mugabe      | M      | North    | Huye     | Ngoma  | Rango_B | vincentmugabe40@gmail.com | +250 783 370 888 |
+| 1120384736 | Fidele    | Musabika    | M      | North    | Huye     | Ngoma  | Rango_A | fidelemusab66@gmail.com   | +250 783 909 890 |
+| 1120384737 | Cloudine  | Uwiduhaye   | F      | North    | Huye     | Ngoma  | Cyarwa  | uwiduhaye15@gmail.com     | +250 783 400 899 |
+| 1120384738 | Valentine | Uwimbabazi  | F      | North    | Huye     | Ngoma  | Rango_B | valentineuwi45@gmail.com  | +250 783 490 767 |
+| 1120384739 | Alex      | Muyoboke    | M      | North    | Huye     | Ngoma  | Cyarwa  | alexmuyoboke0@gmail.com   | +250 787 499 101 |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+
+10 rows in set (0.00 sec)
+
+mysql> select ID,FName,LName,Telephone from Ngoma where cell="Cyarwa";
++------------+----------+-------------+------------------+
+| ID         | FName    | LName       | Telephone        |
++------------+----------+-------------+------------------+
+| 1120384730 | Valens   | Karambizi   | +250 783 200 453 |
+| 1120384733 | Joseph   | Karori      | +250 783 170 233 |
+| 1120384734 | Chantal  | Mukeshimana | +250 783 330 111 |
+| 1120384737 | Cloudine | Uwiduhaye   | +250 783 400 899 |
+| 1120384739 | Alex     | Muyoboke    | +250 787 499 101 |
++------------+----------+-------------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Ngoma;
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+
+| ID         | FName     | LName       | Gender | Province | District | Sector | Cell    | Email_address             | Telephone        |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+
+| 1120384730 | Valens    | Karambizi   | M      | North    | Huye     | Ngoma  | Cyarwa  | valenskar10@gmail.com     | +250 783 200 453 |
+| 1120384731 | Jhon      | Mukiza      | M      | North    | Huye     | Ngoma  | Rango_B | jhonmu0@gmail.com         | +250 783 200 444 |
+| 1120384732 | Esther    | Mbabazi     | F      | North    | Huye     | Ngoma  | Rango_A | mbabazies13@gmail.com     | +250 783 120 224 |
+| 1120384733 | Joseph    | Karori      | M      | North    | Huye     | Ngoma  | Cyarwa  | josephkar90@gmail.com     | +250 783 170 233 |
+| 1120384734 | Chantal   | Mukeshimana | F      | North    | Huye     | Ngoma  | Cyarwa  | chantalmuk22@gmail.com    | +250 783 330 111 |
+| 1120384735 | Vincent   | Mugabe      | M      | North    | Huye     | Ngoma  | Rango_B | vincentmugabe40@gmail.com | +250 783 370 888 |
+| 1120384736 | Fidele    | Musabika    | M      | North    | Huye     | Ngoma  | Rango_A | fidelemusab66@gmail.com   | +250 783 909 890 |
+| 1120384737 | Cloudine  | Uwiduhaye   | F      | North    | Huye     | Ngoma  | Cyarwa  | uwiduhaye15@gmail.com     | +250 783 400 899 |
+| 1120384738 | Valentine | Uwimbabazi  | F      | North    | Huye     | Ngoma  | Rango_B | valentineuwi45@gmail.com  | +250 783 490 767 |
+| 1120384739 | Alex      | Muyoboke    | M      | North    | Huye     | Ngoma  | Cyarwa  | alexmuyoboke0@gmail.com   | +250 787 499 101 |
++------------+-----------+-------------+--------+----------+----------+--------+---------+---------------------------+------------------+
+10 rows in set (0.00 sec)
+
+mysql>
